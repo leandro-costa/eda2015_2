@@ -11,6 +11,18 @@ public class No {
     private No noEsquerda;
     private No noDireita;
 
+    public No(Integer id, String valor) {
+        this.id = id;
+        this.valor = valor;
+    }
+
+    public No(Integer id, String valor, No noEsquerda, No noDireita) {
+        this.id = id;
+        this.valor = valor;
+        this.noEsquerda = noEsquerda;
+        this.noDireita = noDireita;
+    }
+    
     public Integer getId() {
         return id;
     }

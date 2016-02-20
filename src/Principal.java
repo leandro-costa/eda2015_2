@@ -1,4 +1,8 @@
 
+import arvorebalanceada.ArvoreAVL;
+import arvorebalanceada.No;
+
+
 
 /**
  *
@@ -10,7 +14,12 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ArvoreAVL arvore = new ArvoreAVL(new No(50,"Leandro"));
+        arvore.inserir(new No(10,"Leandro"));
+        arvore.inserir(new No(100,"Leandro"));
+        arvore.inserir(new No(30,"Leandro"));
+        arvore.inserir(new No(60,"Leandro"));
+        System.out.print(arvore);
     }
     
 }
