@@ -5,30 +5,30 @@ package arvorebalanceada;
  *
  * @author leandro.costa@ifba.edu.br
  */
-public class No {
-    private Integer id;
+public class No<T extends Comparable<T>> implements Comparable<No<T>> {
+    private T id ;
     private String valor;
     private No noEsquerda;
     private No noDireita;
     
 
-    public No(Integer id, String valor) {
+    public No(T id, String valor) {
         this.id = id;
         this.valor = valor;
     }
 
-    public No(Integer id, String valor, No noEsquerda, No noDireita) {
+    public No(T id, String valor, No noEsquerda, No noDireita) {
         this.id = id;
         this.valor = valor;
         this.noEsquerda = noEsquerda;
         this.noDireita = noDireita;
     }
     
-    public Integer getId() {
+    public T getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(T id) {
         this.id = id;
     }
 
@@ -57,7 +57,12 @@ public class No {
     }
     
     
-    public Integer getAlturaEsquerda() {
+    @Override
+	public String toString() {
+		return "No [id=" + id + ",HE=" + getAlturaEsquerda() + ",HD=" + getAlturaDireita() + "]";
+	}
+
+	public Integer getAlturaEsquerda() {
         Integer alturaFilhoEsquerda = 0;
         if(getNoEsquerda() != null){
             alturaFilhoEsquerda = 1 + getNoEsquerda().getAltura();
@@ -76,6 +81,12 @@ public class No {
     public Integer getAltura() {
         return Math.max(getAlturaDireita(), getAlturaEsquerda());
     }
+
+	@Override
+	public int compareTo(No<T> o) {
+		// TODO Auto-generated method stub
+		return getId().compareTo(o.getId());
+	}
 
     
     

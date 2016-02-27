@@ -19,6 +19,7 @@ public class Principal {
         arvore.inserir(new No(100,"Leandro"));
         arvore.inserir(new No(30,"Leandro"));
         arvore.inserir(new No(60,"Leandro"));
+        arvore.inserir(new No(55,"Leandro"));
         System.out.print(arvore);
     }
     
