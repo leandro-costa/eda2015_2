@@ -23,10 +23,6 @@ public class ArvoreAVL {
     public void inserir(No no){
         if (raiz == null){
             raiz = no;
-        }
-        
-        if (raiz == null){
-            raiz = no;
         }else{
             No atual = raiz;
             No pai;
@@ -50,15 +46,15 @@ public class ArvoreAVL {
 
     @Override
     public String toString() {        
-        return "ArvoreAVL{" + imprimeArvoreEmOrdem(raiz) + "}";
+        return "ArvoreAVL{" + imprimeArvoreEmOrdem(raiz) + "\n}";
     }
     
-    private String imprimeArvoreEmOrdem(No raiz){
+    private String imprimeArvoreEmOrdem(No no){
         StringBuffer sb = new  StringBuffer("");
-        if(raiz != null){
-            sb.append(imprimeArvoreEmOrdem(raiz.getNoEsquerda()));
-            sb.append("{no: " + raiz.getId() + "}");
-            sb.append(imprimeArvoreEmOrdem(raiz.getNoDireita()));
+        if(no != null){
+            sb.append(imprimeArvoreEmOrdem(no.getNoEsquerda()));
+            sb.append("\n{no: " + no.getId() + ", HE: " + no.getAlturaEsquerda()+ ", HD: " + no.getAlturaDireita()+ " }");
+            sb.append(imprimeArvoreEmOrdem(no.getNoDireita()));
         }
         return sb.toString();
     }

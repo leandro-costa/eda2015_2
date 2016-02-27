@@ -10,6 +10,7 @@ public class No {
     private String valor;
     private No noEsquerda;
     private No noDireita;
+    
 
     public No(Integer id, String valor) {
         this.id = id;
@@ -56,7 +57,26 @@ public class No {
     }
     
     
-    
+    public Integer getAlturaEsquerda() {
+        Integer alturaFilhoEsquerda = 0;
+        if(getNoEsquerda() != null){
+            alturaFilhoEsquerda = 1 + getNoEsquerda().getAltura();
+        }
+        return alturaFilhoEsquerda;
+    }
+
+    public Integer getAlturaDireita() {
+        Integer alturaFilhoDireita = 0;
+        if(getNoDireita() != null){
+            alturaFilhoDireita = 1 + getNoDireita().getAltura();
+        }
+        return alturaFilhoDireita;
+    }
+
+    public Integer getAltura() {
+        return Math.max(getAlturaDireita(), getAlturaEsquerda());
+    }
+
     
     
 }
